@@ -10,8 +10,9 @@ resource "aws_instance" "myec2" {
 
      provisioner "remote-exec" {
       inline = [
-      "chmod +x /tmp/web.sh",
-      "sh /tmp/script.sh ",
+      "sudo yum install httpd -y",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd"
     ]
 
     connection {
